@@ -19,4 +19,8 @@ public class Account {
             balance -=i;
         return balance;
     }
+
+    public int getBalance() {
+        return balance;
+    }
 }
