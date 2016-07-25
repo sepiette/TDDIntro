@@ -77,8 +77,6 @@ public class LibraryTest {
     @Test
     public void shouldWelcomeUser() {
         List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
         Library library = new Library(books, printStream, dateTimeFormatter);
 
         // We don't need to mock DateTime because it is a value object
@@ -93,23 +91,26 @@ public class LibraryTest {
     @Test
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsAnEmptyString() {
         List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
         DateTime time = new DateTime();
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
-
         when(dateTimeFormatter.print(time)).thenReturn("");
 
         Library library = new Library(books, printStream, dateTimeFormatter);
-
         library.welcome(time);
-
         // add a verify here
+        verify(printStream).println(endsWith(""));
     }
 
     @Test
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsNotEmpty() {
+        List<String> books = new ArrayList<>();
+        DateTime time = new DateTime();
+        when(dateTimeFormatter.print(time)).thenReturn("12:00 PM");
 
+        Library library = new Library(books, printStream, dateTimeFormatter);
+        library.welcome(time);
         // implement me
         // then move common test variables into a setup method
+        verify(printStream).println(endsWith("12:00 PM"));
+
     }
 }
