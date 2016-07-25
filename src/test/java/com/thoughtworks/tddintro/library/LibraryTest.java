@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Matchers.contains;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class LibraryTest {
 
@@ -52,12 +50,20 @@ public class LibraryTest {
         Library library = new Library(books, printStream, dateTimeFormatter);
         library.listBooks();
         // implement me
-        verify(printStream).println("");
+        verifyZeroInteractions(printStream);
     }
 
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
         // implement me
+        List<String> books = new ArrayList<>();
+        books.add("Harry Potter");
+        books.add("Lord of the Rings");
+        Library library = new Library(books, printStream, dateTimeFormatter);
+        library.listBooks();
+
+        verify(printStream).println("Harry Potter");
+        verify(printStream).println("Lord of the Rings");
     }
 
     /*

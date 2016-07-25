@@ -21,9 +21,6 @@ public class Library {
         for (String book : books) {
             printStream.println(book);
         }
-        if(books.isEmpty()){
-            printStream.println("");
-        }
     }
 
     public void welcome(DateTime date) {
