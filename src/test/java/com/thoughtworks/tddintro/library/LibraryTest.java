@@ -48,8 +48,11 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintNothingWhenThereAreNoBooks() {
-
+        List<String> books = new ArrayList<>();
+        Library library = new Library(books, printStream, dateTimeFormatter);
+        library.listBooks();
         // implement me
+        verify(printStream).println("");
     }
 
     @Test

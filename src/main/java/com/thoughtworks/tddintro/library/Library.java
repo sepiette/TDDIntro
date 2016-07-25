@@ -19,7 +19,10 @@ public class Library {
 
     public void listBooks() {
         for (String book : books) {
-            printStream.println("Book Title");
+            printStream.println(book);
+        }
+        if(books.isEmpty()){
+            printStream.println("");
         }
     }
 
