@@ -5,19 +5,18 @@ package com.thoughtworks.tddintro.accountbalance;
  */
 public class Account {
     private int balance;
+
     public Account(int i) {
         balance = i;
     }
 
-    public int depositMoney(int i) {
+    public void depositMoney(int i) {
         balance += i;
-        return balance;
     }
 
-    public int withdrawMoney(int i) {
+    public void withdrawMoney(int i) {
         if(i <= balance)
             balance -=i;
-        return balance;
     }
 
     public int getBalance() {
