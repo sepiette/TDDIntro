@@ -8,8 +8,9 @@ import static org.junit.Assert.assertThat;
 public class AccountTests {
 
     private Account account;
+
     @Before
-    public void setUp(){
+    public void setUp() {
         account = new Account(100);
     }
 
@@ -19,12 +20,13 @@ public class AccountTests {
     }
 
     @Test
-    public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
+    public void shouldDecreaseMyBalanceWhenIWithdrawMoney() {
         assertThat(account.withdrawMoney(50), is(50));
     }
-//
-//    @Test
-//    public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-//
-//
+
+    @Test
+    public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal() {
+        assertThat(account.withdrawMoney(150), is(100));
+
+    }
 }
