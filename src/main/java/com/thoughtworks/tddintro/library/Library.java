@@ -19,7 +19,7 @@ public class Library {
 
     public void listBooks() {
         for (String book : books) {
-            printStream.println(book);
+            printStream.println("Book Title");
         }
     }
 
